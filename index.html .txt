@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SLEEP? // FILE SELECT</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="screen-noise"></div>
+
+  <div class="desktop">
+    <header class="top-bar">
+      <div class="logo">SLEEP?<span class="blink">_</span></div>
+      <div class="status">USER: child | MODE: READ-ONLY</div>
+    </header>
+
+    <main class="main-area">
+      <section class="intro">
+        <p>
+          <span class="label">DIR</span> C:\DAD\DOCUMENTS\SLEEP?
+        </p>
+        <p class="hint">
+          ↑↓ Select a file &nbsp;•&nbsp; ENTER to open &nbsp;•&nbsp; ESC to close
+        </p>
+      </section>
+
+      <section class="files-grid">
+        <!-- Example ACTIVE files (clickable) -->
+        <button class="file" data-target="story-1">
+          <div class="thumbnail">[01]</div>
+          <div class="filename">SUCKER.txt</div>
+          <div class="meta">SIZE: 4.9 KB</div>
+        </button>
+
+        <button class="file" data-target="story-2">
+          <div class="thumbnail">[02]</div>
+          <div class="filename">SIR_MADAM.pdf</div>
+          <div class="meta">SIZE: 3.1 KB</div>
+        </button>
+
+        <button class="file" data-target="story-3">
+          <div class="thumbnail">[03]</div>
+          <div class="filename">SEVEN-K.log</div>
+          <div class="meta">SIZE: 5.7 KB</div>
+        </button>
+
+        <button class="file" data-target="story-4">
+          <div class="thumbnail">[04]</div>
+          <div class="filename">SQUIRMFEST.rtf</div>
+          <div class="meta">SIZE: 4.4 KB</div>
+        </button>
+
+        <!-- LOCKED / FUTURE files (not clickable yet) -->
+        <!-- You can replace "LOCKED" gradually as you write stories -->
+        <!-- Just remove data-target and add "locked" class until ready -->
+
+        <!-- Example locked files -->
+        <button class="file locked">
+          <div class="thumbnail">[05]</div>
+          <div class="filename">05_5TORIE5.sys</div>
+          <div class="meta">STATUS: LOCKED</div>
+        </button>
+
+        <button class="file locked">
+          <div class="thumbnail">[06]</div>
+          <div class="filename">shop.exe</div>
+          <div class="meta">STATUS: LOCKED</div>
+        </button>
+
+        <button class="file locked">
+          <div class="thumbnail">[07]</div>
+          <div class="filename">scat.tmp</div>
+          <div class="meta">STATUS: LOCKED</div>
+        </button>
+
+        <!-- Fill this out up to 50 entries -->
+        <!-- You can duplicate this pattern until you have 50 tiles -->
+
+        <!-- Example of filler tiles up to 12 -->
+        <button class="file locked">
+          <div class="thumbnail">[08]</div>
+          <div class="filename">haunted_hotel.txt</div>
+          <div class="meta">STATUS: LOCKED</div>
+        </button>
+
+        <button class="file locked">
+          <div class="thumbnail">[09]</div>
+          <div class="filename">Shirley.ai</div>
+          <div class="meta">STATUS: LOCKED</div>
+        </button>
+
+        <button class="file locked">
+          <div class="thumbnail">[10]</div>
+          <div class="filename">Service.wav</div>
+          <div class="meta">STATUS: LOCKED</div>
+        </button>
+
+        <button class="file locked">
+          <div class="thumbnail">[11]</div>
+          <div class="filename">Spores.jpg</div>
+          <div class="meta">STATUS: LOCKED</div>
+        </button>
+
+        <button class="file locked">
+          <div class="thumbnail">[12]</div>
+          <div class="filename">Santa.mkv</div>
+          <div class="meta">STATUS: LOCKED</div>
+        </button>
+
+        <!-- You’ll eventually go up to [50] here -->
+      </section>
+    </main>
+
+    <footer class="bottom-bar">
+      <span>MEM: 050/050 FILES DETECTED</span>
+      <span>LAST LOGIN: 03:17:00</span>
+    </footer>
+  </div>
+
+  <!-- STORY WINDOWS (HIDDEN, POPPED UP ON CLICK) -->
+  <!-- Put your actual story text inside these divs -->
+
+  <div id="modal" class="modal hidden">
+    <div class="modal-window">
+      <div class="modal-bar">
+        <span class="modal-title">FILE OPEN</span>
+        <button class="close-btn">X</button>
+      </div>
+      <div class="modal-body">
+        <pre id="story-content" class="story-text">
+          <!-- JS will inject story text here -->
+        </pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hidden story content blocks: paste your real text inside each -->
+  <!-- STORY 1 -->
+  <div id="story-1" class="story-content hidden">
+SUCKER
+
+James looks up from the puddle of toothpaste spit in the sink and notices the spot for the first time...
+[PASTE FULL STORY TEXT HERE – you can keep line breaks, it will show in the site]
+  </div>
+
+  <!-- STORY 2 -->
+  <div id="story-2" class="story-content hidden">
+SIR / MADAM
+
+PRIVATE AND CONFIDENTIAL
+
+March 25th 2025
+ECO SMILE ENERGY LTD
+[PASTE FULL LETTER HERE]
+  </div>
+
+  <!-- STORY 3 -->
+  <div id="story-3" class="story-content hidden">
+SEVEN-K
+
+NIGHT 1
+
+Dr. Eckman kindly tells me that journaling is a great way to clear your mind, so here goes.
+[PASTE FULL STORY HERE]
+  </div>
+
+  <!-- STORY 4 -->
+  <div id="story-4" class="story-content hidden">
+SQUIRMFEST
+
+“It’s because they don’t have any legs”, Lucia explained to Ben. “I don’t understand how they move, and my brain doesn’t like it”.
+[PASTE FULL STORY HERE]
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
