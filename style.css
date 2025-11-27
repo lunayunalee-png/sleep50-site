@@ -1,0 +1,267 @@
+/* GENERAL RESET */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background: #000;
+  color: #f33;
+  font-family: "Fira Code", "Courier New", monospace;
+  overflow: hidden;
+  position: relative;
+}
+
+/* FAKE CRT NOISE */
+.screen-noise {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 0, 0, 0.05),
+    rgba(255, 0, 0, 0.05) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  mix-blend-mode: screen;
+  opacity: 0.4;
+}
+
+/* DESKTOP LAYOUT */
+.desktop {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 16px;
+}
+
+/* TOP BAR */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #400;
+  padding-bottom: 4px;
+  margin-bottom: 8px;
+}
+
+.logo {
+  font-weight: bold;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.blink {
+  animation: blink 1s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+.status {
+  font-size: 0.8rem;
+  color: #a22;
+}
+
+/* MAIN AREA */
+.main-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.intro {
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+.label {
+  color: #f55;
+  margin-right: 6px;
+}
+
+.hint {
+  color: #a22;
+  margin-top: 4px;
+}
+
+/* FILE GRID */
+.files-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 8px;
+  padding: 4px 0;
+  overflow-y: auto;
+}
+
+.file {
+  background: #050000;
+  border: 1px solid #400;
+  color: #f33;
+  padding: 6px 8px;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  position: relative;
+  transition: transform 0.08s ease-out, box-shadow 0.08s ease-out, border-color 0.08s;
+}
+
+.file::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(255, 0, 0, 0.08);
+  pointer-events: none;
+}
+
+.file:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 8px rgba(255, 0, 0, 0.3);
+  border-color: #f33;
+}
+
+.file:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.file .thumbnail {
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.file .filename {
+  font-size: 0.8rem;
+}
+
+.file .meta {
+  font-size: 0.7rem;
+  color: #a22;
+}
+
+/* LOCKED FILES */
+.file.locked {
+  border-style: dashed;
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.file.locked:hover {
+  transform: none;
+  box-shadow: none;
+  border-color: #400;
+}
+
+/* BOTTOM BAR */
+.bottom-bar {
+  border-top: 1px solid #400;
+  padding-top: 4px;
+  margin-top: 8px;
+  font-size: 0.8rem;
+  display: flex;
+  justify-content: space-between;
+  color: #a22;
+}
+
+/* MODAL (STORY WINDOW) */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-window {
+  width: 90%;
+  max-width: 800px;
+  height: 80%;
+  background: #050000;
+  border: 1px solid #f33;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+}
+
+.modal-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 8px;
+  border-bottom: 1px solid #400;
+  background: linear-gradient(to right, #200000, #050000);
+}
+
+.modal-title {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.close-btn {
+  background: transparent;
+  border: 1px solid #f33;
+  color: #f33;
+  font-family: inherit;
+  font-size: 0.8rem;
+  padding: 2px 6px;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  background: #f33;
+  color: #050000;
+}
+
+.modal-body {
+  flex: 1;
+  padding: 8px;
+  overflow: auto;
+}
+
+/* STORY TEXT */
+.story-text {
+  white-space: pre-wrap;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+/* HIDDEN STORY CONTENT (NOT SHOWN DIRECTLY) */
+.story-content.hidden {
+  display: none;
+}
+
+/* SCROLLBAR STYLING (optional) */
+.files-grid::-webkit-scrollbar,
+.modal-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.files-grid::-webkit-scrollbar-thumb,
+.modal-body::-webkit-scrollbar-thumb {
+  background: #400;
+}
+
+.files-grid::-webkit-scrollbar-track,
+.modal-body::-webkit-scrollbar-track {
+  background: #050000;
+}
