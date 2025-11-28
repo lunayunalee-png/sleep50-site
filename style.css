@@ -99,27 +99,39 @@ body {
 .files-grid {
   flex: 1;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);   /* fixed 5×10 grid */
+
+  /* exactly 10 columns, each sharing space */
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+
+  /* make each row share height equally (5 rows total for 50 items) */
+  grid-auto-rows: 1fr;
+
   gap: 8px;
   padding: 4px 0;
-  overflow-y: auto;
 
-  max-width: 900px;       /* centers the 5-column grid */
-  margin: 0 auto;         /* center horizontally */
+  /* no internal scroll – the grid should shrink to fit instead */
+  overflow: hidden;
+
+  /* use full width; let it scale with viewport */
+  width: 100%;
 }
 
 .file {
   background: #050000;
   border: 1px solid #400;
   color: #f33;
-  padding: 6px 8px;
+  padding: 4px;  /* slightly smaller padding so 10x5 fits better */
   text-align: left;
   cursor: pointer;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 2px;
   position: relative;
   transition: transform 0.08s ease-out, box-shadow 0.08s ease-out, border-color 0.08s;
+
+  min-width: 0;   /* allow shrinking inside the grid cell */
+  min-height: 0;  /* allow shrinking vertically */
 }
 
 .file::before {
@@ -142,16 +154,21 @@ body {
 }
 
 .file .thumbnail {
-  font-weight: bold;
-  font-size: 0.9rem;
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .file .filename {
   font-size: 0.8rem;
 }
 
-.file .meta {
-  font-size: 0.7rem;
+.filename,
+.meta {
+  font-size: 0.6rem;
+}
+
+.meta {
   color: #a22;
 }
 
