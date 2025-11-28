@@ -160,15 +160,21 @@ body {
 }
 
 .file .filename {
-  font-size: 0.8rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+
+  background: rgba(0, 0, 0, 0.6);
+  color: #f33;
+  padding: 2px 4px;
+  font-size: 0.6rem;
+  text-align: left;
 }
 
-.filename,
+/* Just meta on its own now */
 .meta {
   font-size: 0.6rem;
-}
-
-.meta {
   color: #a22;
 }
 
