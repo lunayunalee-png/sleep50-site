@@ -53,6 +53,7 @@ body {
 
 .logo {
   font-weight: bold;
+  font-size: 1.6rem;      /* ← make it bigger */
   letter-spacing: 0.15em;
   text-transform: uppercase;
 }
