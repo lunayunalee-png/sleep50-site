@@ -99,10 +99,13 @@ body {
 .files-grid {
   flex: 1;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  grid-template-columns: repeat(5, 1fr);   /* fixed 5×10 grid */
   gap: 8px;
   padding: 4px 0;
   overflow-y: auto;
+
+  max-width: 900px;       /* centers the 5-column grid */
+  margin: 0 auto;         /* center horizontally */
 }
 
 .file {
