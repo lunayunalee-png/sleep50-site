@@ -109,7 +109,7 @@ body {
   /* make each row share height equally (5 rows total for 50 items) */
   grid-auto-rows: 1fr;
 
-  gap: 8px;
+  gap: 12px;
   padding: 4px 0;
 
   /* no internal scroll – the grid should shrink to fit instead */
