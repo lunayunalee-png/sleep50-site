@@ -143,6 +143,7 @@ body {
   inset: 0;
   border: 1px solid rgba(255, 0, 0, 0.08);
   pointer-events: none;
+  z-index: 2;              /* border on top of everything inside */
 }
 
 .file:hover {
@@ -173,6 +174,7 @@ body {
   padding: 2px 4px;
   font-size: 1rem;
   text-align: left;
+  z-index: 1;              /* boarder under the inner border */
 }
 
 /* Just meta on its own now */
